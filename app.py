@@ -21,8 +21,9 @@ try:
     client = gspread.authorize(creds)
 
     # Connected directly to your specific sheet ID
-    SHEET_ID = "1kMgv08R3Hmd0f_IV3H-T-jtjQRmcTRdDF8DkpgSTyb8"
-    sheet = client.open_by_key(SHEET_ID).sheet1
+    # Connected via explicit open URL link parameters
+sheet = client.open_by_url("https://google.com").sheet1
+
 
 except Exception as e:
     st.error("Authentication Error: Please check your credentials.json file or Google Sheet access.")
