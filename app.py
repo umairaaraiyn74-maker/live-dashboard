@@ -20,13 +20,11 @@ try:
     creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
     client = gspread.authorize(creds)
 
-    # Connected directly to your specific sheet ID
-    # Connected via explicit open URL link parameters
-sheet = client.open_by_url("https://google.com").sheet1
-
+    # Clean direct URL matching your data layout sheet
+    sheet = client.open_by_url("https://google.com").sheet1
 
 except Exception as e:
-    st.error("Authentication Error: Please check your credentials.json file or Google Sheet access.")
+    st.error(f"Authentication Error: Please check your credentials.json file or Google Sheet access. Details: {e}")
     st.stop()
 
 # 3. Continuous Dashboard Refresh Loop
