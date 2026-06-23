@@ -13,7 +13,11 @@ st.title("📊 Real-Time Operations Dashboard")
 REFRESH_INTERVAL = 10 
 
 # 2. Authenticate and Connect to Google Sheets
-scope = ["https://google.com", "https://googleapis.com"]
+scope = [
+    "https://spreadsheets.google.com/feeds",
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive"
+]
 
 try:
     # Looks for your credentials.json file in the repository
